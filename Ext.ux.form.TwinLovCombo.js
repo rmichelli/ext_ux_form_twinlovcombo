@@ -20,8 +20,8 @@ Ext.ux.form.TwinLovCombo = Ext.extend(Ext.ux.form.LovCombo, {
         var config = {
             triggerConfig:{
                  tag:'span', cls:'x-form-twin-triggers', cn:[
-                     {tag: "img", src: Ext.BLANK_IMAGE_URL, cls: "x-form-trigger " + this.trigger1Class}
-                    ,{tag: "img", src: Ext.BLANK_IMAGE_URL, cls: "x-form-trigger " + this.trigger2Class}
+                     Ext.apply({tag: "img", src: Ext.BLANK_IMAGE_URL, cls: "x-form-trigger " + this.trigger1Class}, this.trigger1Qtip ? {qtip:this.trigger1Qtip} : {})
+                    ,Ext.apply({tag: "img", src: Ext.BLANK_IMAGE_URL, cls: "x-form-trigger " + this.trigger2Class}, this.trigger2Qtip ? {qtip:this.trigger2Qtip} : {})
             ]}
         }; // eo config object
 
