@@ -1,4 +1,6 @@
-/** Based on Ext.ux.form.TwinCombo, modified to extend Ext.ux.form.LovCombo */
+/** Based on Ext.ux.form.TwinCombo from http://www.sencha.com/forum/showthread.php?55191,
+ *  modified to extend Ext.ux.form.LovCombo
+ */
 
 Ext.ns('Ext.ux.form');
 
@@ -7,6 +9,7 @@ Ext.ns('Ext.ux.form');
  * @constructor
  * @param {Object} config A config object
  */
+
 Ext.ux.form.TwinLovCombo = Ext.extend(Ext.ux.form.LovCombo, {
 
      trigger1Class:''
@@ -20,8 +23,8 @@ Ext.ux.form.TwinLovCombo = Ext.extend(Ext.ux.form.LovCombo, {
         var config = {
             triggerConfig:{
                  tag:'span', cls:'x-form-twin-triggers', cn:[
-                     Ext.apply({tag: "img", src: Ext.BLANK_IMAGE_URL, cls: "x-form-trigger " + this.trigger1Class}, this.trigger1Qtip ? {'ext:qtip':this.trigger1Qtip} : {})
-                    ,Ext.apply({tag: "img", src: Ext.BLANK_IMAGE_URL, cls: "x-form-trigger " + this.trigger2Class}, this.trigger2Qtip ? {'ext:qtip':this.trigger2Qtip} : {})
+                     Ext.apply({tag: "img", src: Ext.BLANK_IMAGE_URL, cls: "x-form-trigger " + this.trigger1Class}, this.trigger1Qtip && {'ext:qtip':this.trigger1Qtip})
+                    ,Ext.apply({tag: "img", src: Ext.BLANK_IMAGE_URL, cls: "x-form-trigger " + this.trigger2Class}, this.trigger2Qtip && {'ext:qtip':this.trigger2Qtip})
             ]}
         }; // eo config object
 
@@ -37,6 +40,7 @@ Ext.ux.form.TwinLovCombo = Ext.extend(Ext.ux.form.LovCombo, {
     } // eo function initComponent
     // }}}
 
+    ,afterRender:Ext.form.TwinTriggerField.prototype.afterRender
     ,initTrigger:Ext.form.TwinTriggerField.prototype.initTrigger
     ,getTrigger:Ext.form.TwinTriggerField.prototype.getTrigger
     ,onTrigger1Click:function() {
